@@ -1,30 +1,40 @@
-// Задача 3. Перевірка спаму
-// ВИКОНУЙ ЦЕ ЗАВДАННЯ У ФАЙЛІ task-3.js
-// Функція checkForSpam(message) приймає рядок(параметр message), перевіряє його на вміст заборонених слів spam і sale,
-//     і повертає результат перевірки.Слова в рядку параметра message можуть бути в довільному регістрі, наприклад SPAM або
-// sAlE.
+// Об’єкт profile описує профіль користувача на ігровій платформі.У його властивостях зберігається ім’я профілю 
+// username та кількість активних годин playTime, проведених у грі.
 
-// Доповни код функції таким чином, що:
+// const profile = {
+//     username: "Jacob",
+//   playTime: 300,
+// };
 
-// Якщо знайдено заборонене слово (spam або sale), то функція повертає буль true
-// Якщо в рядку відсутні заборонені слова, функція повертає буль false
-// Візьми код нижче і встав після оголошення своєї функції для перевірки коректності її роботи.У консоль будуть виведені
-//  результати її роботи.
+// Доповни об’єкт profile методами для роботи з його властивостями.
 
-function checkForSpam(message) {
-    const text=  message.toLowerCase();
-    if (text.includes("spam") || text.includes("sale")) return true;
-    else return false;
-}
+// Метод changeUsername(newName) повинен приймати рядок(нове ім’я) в параметр newName та змінювати значення 
+// властивості username на нове.Нічого не повертає.
+// Метод updatePlayTime(hours) повинен приймати число(кількість годин) у параметр hours та збільшити на нього
+//  значення властивості playTime.Нічого не повертає.
+// Метод getInfo() має повертати рядок формату < Username > has < amount > active hours!, де < Username > — це ім’я
+// профілю, а < amount > — кількість ігрових годин.
 
 
-
-
-console.log(checkForSpam("Latest technology news")); // false
-console.log(checkForSpam("JavaScript weekly newsletter")); // false
-console.log(checkForSpam("Get best sale offers now!")); // true
-console.log(checkForSpam("Amazing SalE, only tonight!")); // true
-console.log(checkForSpam("Trust me, this is not a spam message")); // true
-console.log(checkForSpam("Get rid of sPaM emails. Our book in on sale!")); // true
-console.log(checkForSpam("[SPAM] How to earn fast money?")); // true
+const profile = {
+    username: "Jacob",
+    playTime: 300,
+    changeUsername: function (newName) {
+      this.username = newName;
+    },
+    updatePlayTime: function (hours) {
+      this.playTime += hours;
+    },
+    getInfo: function () {
+      return `${this.username} has ${this.playTime} active hours!`;
+    },
+  };
+  
+  console.log(profile.getInfo()); 
+  
+  profile.changeUsername("Marco");
+  console.log(profile.getInfo()); 
+  
+  profile.updatePlayTime(20);
+  console.log(profile.getInfo()); 
 
